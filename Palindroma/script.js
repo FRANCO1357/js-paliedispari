@@ -5,8 +5,10 @@
 // 5. controllare se la parola invertita è uguale a quella iniziale
 // 6. stampare in console in base al risultato
 
-const word = prompt('Scrivi una parola', 'radar')
+// CHIEDO UNA PAROLA ALL'UTENTE
+const word = (prompt('Scrivi una parola', 'radar')).trim();
 
+// INVERTO L'ORDINE DELLE LETTERE ALL'INTERNO DELLA PAROLA
 function isPalindroma (){
     let result = '';
 
@@ -20,7 +22,7 @@ function isPalindroma (){
 const reverseWord = isPalindroma(word);
 console.log(reverseWord);
 
-
+// CONTROLLO SE LA PAROLA INVERTITA SIA UGUALE A QUELLA SCRITTA INIZIALMENTE DALL'UTENTE
 if (reverseWord === word){
     console.log('La parola è palindroma')
 } else {
