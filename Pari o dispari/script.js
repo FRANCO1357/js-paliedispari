@@ -4,28 +4,61 @@
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-let userChoice = prompt('Scegli pari o dispari', 'pari');
+// CHIEDO ALL'UTENTE DI SCEGLIERE TRA PARI O DISPARI
+let userChoice = (prompt('Scegli pari o dispari', 'pari')).trim();
 console.log(userChoice);
 
+// VALIDO LA SCELTA DELL'UTENTE
+if (userChoice !== 'pari' && userChoice !== 'dispari'){
+    console.log('La scelta fatta non è valida')
+} else {
+
+// CHIEDO ALL'UTENTE DI SCEGLIERE UN NUMERO DA 1 A 5
 const userNumber = parseInt(prompt('Scegli un numero da 1 a 5', '2'));
 console.log(userNumber);
 
-const cpuNumber = parseInt(Math.floor(Math.random() * 5) +1);
+// VALIDO IL VALORE SCELYTO DALL'UTENTE
+if (userNumber > 5 || isNaN(userNumber)){
+    console.log('Il valore inserito non è valido')
+} else {
+
+// CREO UN NUMERO RANDOM CON UNA FUNZIONE
+function randomNumber (){
+    let cpuNumber = 0
+
+    cpuNumber = parseInt(Math.floor(Math.random() * 5) +1);
+
+    return cpuNumber;
+}
+
+const cpuNumber = randomNumber();
 console.log(cpuNumber);
 
+// SOMMO IL NUMERO DELL'UTENTE CON QUELLO DEL COMPUTER
 let sum = (userNumber + cpuNumber)
 console.log(sum);
 
-let result = 'dispari'
+// CONTROLLO SE IL RISULTATO DELLA SOMMA SIA PARI O DISPARI
+function isEven (){
+    let result = 'dispari'
 
-if(sum % 2 === 0){
+    if(sum % 2 === 0){
     result = 'pari';
+    }
+
+    return result;
 }
 
+const result = isEven();
 console.log(result);
 
+// CONTROLLO SE LA SCELTA INIZIALE DELL'UTENTE CORRISPONDE AL RISULTATO FINALE E DETERMINO IL VINCITORE
 if(userChoice === result){
     console.log('Hai vinto!')
 } else {
     console.log('Ha vinto il computer...')
+}
+
+}
+
 }
